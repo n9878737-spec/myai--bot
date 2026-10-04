@@ -29,6 +29,6 @@ def handle_message(message):
         reply = response.choices[0].message.content
         bot.reply_to(message, reply)
     except Exception as e:
-        bot.reply_to(message, f"Error: {str(e)}")
+       bot.reply_to(message, f"Error: {str(e)}")
 
 bot.polling()
