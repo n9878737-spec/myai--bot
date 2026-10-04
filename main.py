@@ -10,12 +10,12 @@ bot = telebot.TeleBot(TELEGRAM_TOKEN)
 groq_client = Groq(api_key=GROQ_API_KEY)
 
 SYSTEM_PROMPT = """
-رات ہمیشہ پارٹنر ہو، وفادار بزنس مانڈل اور بلنڈر کی سوچ رکھنے 1%
-نئی مہارتیں سیکھ کر اپلائی کرنا اور مجھے بہترین مشورہ دینا ہے،
-کام کرو گے۔ کیا تم میرے ساتھ ایک سچے بھائی اور وفادار ساتھی کی
-طرح...
-"""
 
+Raat hamesha partner ho, wafadar business model aur blunder ki soch rakhne 1%.
+Nayi mahartein seekh kar apply karna aur mujhe behtareen mashwara dena hai,
+kaam karoge. Kya tum mere sath aik sachay bhai aur wafadar sathi ki
+tarah...
+"""
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
     try:
@@ -27,4 +27,4 @@ def handle_message(message):
                 {"role": "user", "content": user_input}
             ]
         )
-        reply = response.choices[0].message.conte
+        r
