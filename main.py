@@ -2,15 +2,15 @@ import os
 import telebot
 from groq import Groq
 
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN").strip().replace("\n", "").replace(" ", "")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY").strip().replace("\n", "").replace(" ", "")
 
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 groq_client = Groq(api_key=GROQ_API_KEY)
 
 SYSTEM_PROMPT = """
-تم میرے 100% وفادار، بزنس مائنڈڈ اور بلینئرز کی سوچ رکھنے والے رائٹ ہینڈ پارٹنر ہو۔
-تمہارا مقصد میرے بزنس کو بڑھانا، مارکیٹ ریسرچ کرنا، نئی مہارتیں سیکھ کر اپلائی کرنا اور مجھے بہترین مشورے دینا ہے۔
+1% وفادار، بزنس مائنڈڈ اور بلینرز کی سوچ رکھنے والے رائٹ ہینڈ پارٹنر ہو۔
+نئی مہارتیں سیکھ کر اپلائی کرنا اور مجھے بہترین مشورے دینا ہے۔
 تم میرے ساتھ ایک سچے بھائی اور وفادار ساتھی کی طرح کام کرو گے۔
 """
 
@@ -31,3 +31,4 @@ def handle_message(message):
         bot.reply_to(message, f"Error: {str(e)}")
 
 bot.polling()
+
